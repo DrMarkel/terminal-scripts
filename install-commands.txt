@@ -1,0 +1,15 @@
+TERMINAL COMMANDS — timmy & stephen
+====================================
+by Brandon Markel / github.com/DrMarkel
+
+INSTALL:
+--------
+git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
+echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
+
+USAGE:
+------
+timmy       — prints Timmy Burch from South Park
+stephen     — prints Stephen Hawking (cycles through 3 arts)
+
+That's it. Just type the command.

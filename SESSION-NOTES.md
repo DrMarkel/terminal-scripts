@@ -1,109 +1,123 @@
-# Session Notes — Timmy ASCII Art & Terminal Commands
+# Session Notes — Timmy & Fart Terminal Commands
 **Date:** April 1, 2026
 **Session type:** Cowork (Claude Desktop)
+**GitHub repo:** https://github.com/DrMarkel/terminal-scripts
 
 ---
 
-## What We Did
+## What Lives Where
 
-### 1. Attempted hand-drawn ASCII art of Timmy Burch (South Park)
-- Made 10 versions using block characters (`▄▀█░▒▓`), box-drawing chars, and standard ASCII
-- Results were generic — didn't actually look like Timmy
-- Honest assessment: hand-drawing blind without pixel reference doesn't work for character-specific art
+### Primary folder: `~/Desktop/Gay.Claude/Scripts/`
 
-### 2. Switched to image-to-ASCII conversion (the right approach)
-- Found the official South Park wiki PNG of Timmy (524×1029) already open in Arc browser
-- Built a Python script (`img_to_ascii.py`) that converts any image to ASCII using half-block chars (`▀▄█`) or shade blocks (`░▒▓█`)
-- Programmatically drew Timmy in PIL/Python (`draw_timmy.py`) based on the reference:
-  - Giant round head (~60% of total height)
-  - Orange spiky hair
-  - Huge white oval eyes with tiny dot pupils
-  - Worried/sad brows
-  - Small downturned mouth
-  - Tiny red shirt body
-  - Dark brown wheelchair frame, blue backrest, teal footrest, gray side wheels
-- Ran the drawing through the converter at multiple widths and modes
-- Best result: 100-column half-block mode — clearly recognizable as Timmy
+| File | What it is | In GitHub? |
+|------|------------|------------|
+| `timmy` | Shell command — prints random Timmy ASCII art + TIMMAAAY! banner | ✅ Yes |
+| `fart` | Shell command — animated 11-frame frog fart story | ✅ Yes |
+| `timmy-art-1.txt` | Source ASCII art #1 (108 lines, spoke wheels, open style) | No |
+| `timmy-art-2.txt` | Source ASCII art #2 (52 lines, dense `*` shading) | No |
+| `timmy-art-3.txt` | Source ASCII art #3 (70 lines, dense `@%#` shading) | No |
+| `timmy-drawn.png` | Programmatically drawn Timmy reference image | No |
+| `draw_timmy.py` | Python script that drew Timmy using PIL | No |
+| `img_to_ascii.py` | Image-to-ASCII converter — feed any PNG, get block art | No |
+| `timmy burch.png` | Original Timmy reference image | No |
+| `Timmy.webp` | Original Timmy reference image | No |
+| `stephen-hawking.avif` | Stephen Hawking image (for a future command someday) | No |
+| `SESSION-NOTES.md` | This file | No |
 
-### 3. You uploaded 3 real Timmy ASCII arts
-- **`timmy-art-1.txt`** — 108 lines, full wheelchair with large spoke wheels, open/airy style
-- **`timmy-art-2.txt`** — 52 lines, dense `*` shading, more abstract
-- **`timmy-art-3.txt`** — 70 lines, dense `@%#*+` shading, angled/complex view
-- These are high quality and clearly recognizable
+---
 
-### 4. Built the `timmy` terminal command
-- Shell script (`/Scripts/timmy`)
-- Randomly picks one of the 3 uploaded arts each run
-- Prints a large TIMMAAAY! ASCII banner (big block letters)
+## The Commands
+
+### `timmy`
+Run it from anywhere in terminal: just type `timmy`
+
+What it does:
+- Randomly picks one of 3 uploaded Timmy ASCII arts each time you run it
+- Prints a large **TIMMAAAY!** banner in block letters
 - Prints a random yell variant: `TIMMAY!`, `TIIIMMMAAAAYYY!`, `T I M M A A A A A Y ! ! !`, etc.
-- ANSI colors: orange `@` for hair, brown `*#` for wheelchair, teal `=+` for footrest
-- Auto-strips color when output is piped (CI logs stay clean)
-- Exit code passthrough: `timmy 1` prints Timmy and exits 1 — useful as a build failure hook
+- ANSI colors: orange for hair, brown for wheelchair, teal for footrest
+- Auto-strips color when output is piped (so logs stay clean)
+- **Exit code passthrough:** `timmy 1` prints Timmy and exits with code 1 — use it as a build failure hook: `some-command || timmy $?`
 
-### 5. Discovered the `fart` script already existed in Scripts
-- Animated terminal story: 3 frogs progressively farting, escalating to total destruction
-- 11 frames with `sleep` delays, full ASCII animation
-- Was not in PATH — neither `fart` nor `timmy` were accessible as commands
+### `fart`
+Run it from anywhere in terminal: just type `fart`
 
-### 6. Fixed PATH setup
-- `~/.zshrc` had `~/bin` and `~/.local/bin` but NOT `Gay.Claude/Scripts`
-- Fix: add this to `~/.zshrc`:
-  ```bash
-  export PATH="$HOME/Desktop/Gay.Claude/Scripts:$PATH"
-  ```
-  Then: `source ~/.zshrc`
-- After this, both `fart` and `timmy` work from any terminal window
-
-### 7. GitHub repo setup (in progress)
-- Goal: push `fart` and `timmy` to a public repo so you can share with your brother
-- Repo name: `DrMarkel/terminal-scripts`
-- Install GitHub CLI if needed: `brew install gh && gh auth login`
-- Then push:
-  ```bash
-  cd ~/Desktop/Gay.Claude/Scripts
-  git init
-  git add fart timmy
-  git commit -m "initial commit: fart and timmy terminal commands"
-  gh repo create DrMarkel/terminal-scripts --public --description "Custom terminal commands — fart, timmy, and whatever comes next" --source=. --push
-  ```
-- Your brother installs with:
-  ```bash
-  git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
-  echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
-  ```
+What it does:
+- Animated 11-frame story in the terminal
+- Three realistic frogs. One farts. Then another. Then the third one walks in and gets hit by a catastrophic combined blast.
+- Eye expressions change per frame: `o o` normal → `O O` straining → `^ ^` smug → `> <` oh no → `x x` dead
+- Final frame: all three frogs with `x x` eyes going `...ribbit...`
+- Sound escalation: `p f f f f F F F R R R T T !` → `B B R R A A A P P ! ! !` → `F F F W W O O O M M P P P ! ! ! !`
 
 ---
 
-## Files in Gay.Claude/Scripts
+## How They Got Built
 
-| File | What it is |
-|------|-----------|
-| `timmy` | Shell command — run from anywhere, prints Timmy + TIMMAAAY banner |
-| `fart` | Shell command — animated frog fart story, 11 frames |
-| `timmy-art-1.txt` | Source ASCII art #1 (108 lines, spoke wheels) |
-| `timmy-art-2.txt` | Source ASCII art #2 (52 lines, dense * shading) |
-| `timmy-art-3.txt` | Source ASCII art #3 (70 lines, dense @%# shading) |
-| `timmy-drawn.png` | Programmatically drawn Timmy reference image (PIL/Python) |
-| `draw_timmy.py` | Python script that drew Timmy — edit to adjust proportions, re-run to regenerate |
-| `img_to_ascii.py` | Image-to-ASCII converter — feed any PNG, get block art output |
-| `timmy burch.png` | Original Timmy image (pre-existing) |
-| `Timmy.webp` | Original Timmy image (pre-existing) |
-| `stephen-hawking.avif` | Stephen Hawking image (pre-existing, presumably for a future command) |
+### Timmy
+1. Tried 10 hand-drawn ASCII attempts — all looked generic, not like Timmy
+2. Switched to image-to-ASCII conversion pipeline:
+   - Built `draw_timmy.py` to programmatically draw Timmy in Python/PIL (giant round head, orange hair, huge eyes, wheelchair)
+   - Built `img_to_ascii.py` to convert any PNG to block characters (`▀▄█░▒▓`)
+   - Best result: 100-column half-block mode — clearly recognizable
+3. You then uploaded 3 real Timmy ASCII arts from the internet — these are what the command actually uses
+4. Wrapped everything in a shell script with ANSI colors and random selection
 
----
-
-## Key Takeaways / Lessons Learned
-
-- **Hand-drawn ASCII art is basically guesswork** — image-to-ASCII conversion from a real reference is the only way to get character-accurate results
-- **`img_to_ascii.py` is reusable** — drop any image in, get ASCII out. Good pipeline for making more commands (Stephen Hawking is right there...)
-- **The PATH issue** — `Gay.Claude/Scripts` needs to be in `~/.zshrc` to make scripts available globally. One-time fix, then everything just works
-- **Exit code passthrough** is a useful pattern — `timmy $?` at the end of a script prints Timmy only on failure
+### Fart
+- Script already existed when this session started
+- Rewrote it with realistic frog ASCII art (proper frog shape with body, legs, feet)
+- Added per-frame eye expressions including `x x` dead eyes on the final frame
+- Fixed centering across all 11 frames
+- All three frogs die at the end
 
 ---
 
-## For the Folder Manager
+## PATH Setup (one-time fix)
+Scripts only work as commands if this line is in `~/.zshrc`:
 
-- `SESSION-NOTES.md` (this file) — keep in `Scripts/` as a running log
-- The `timmy` command is production-ready, executable, and in PATH after the `~/.zshrc` fix
-- GitHub repo push is pending — commands above will complete it
-- `draw_timmy.py` and `img_to_ascii.py` are tools, not commands — they live in Scripts but don't need to be in the repo unless you want to version them too
+```bash
+export PATH="$HOME/Desktop/Gay.Claude/Scripts:$PATH"
+```
+
+To add it (if not already there):
+```bash
+echo 'export PATH="$HOME/Desktop/Gay.Claude/Scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
+```
+
+---
+
+## GitHub Repo
+**URL:** https://github.com/DrMarkel/terminal-scripts
+
+Contains: `fart` and `timmy`
+
+To push future changes:
+```bash
+cd ~/Desktop/Gay.Claude/Scripts
+git add <filename>
+git commit -m "describe what changed"
+git push
+```
+
+No Homebrew needed. `git` is built into macOS.
+
+To share with your brother:
+```bash
+git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
+echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
+```
+
+---
+
+## Tools Available for Future Commands
+
+- **`img_to_ascii.py`** — drop any image in, get ASCII art out. Stephen Hawking is right there waiting.
+- **`draw_timmy.py`** — tweak proportions or colors, re-run, regenerate the reference PNG
+- The whole pipeline is reusable for any character or image
+
+---
+
+## Pending / Future Ideas
+- [ ] Push updated `fart` to GitHub (realistic frogs + x eyes)
+- [ ] Uninstall Homebrew (no longer needed — `gh` was the only thing using it)
+- [ ] TMNT version of fart (noted, circling back later)
+- [ ] Stephen Hawking command using `img_to_ascii.py`
