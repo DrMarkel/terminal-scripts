@@ -1,0 +1,10 @@
+.DS_Store
+*.png
+*.webp
+*.avif
+*.jpeg
+*.jpg
+*.plugin
+stephen-preview.txt
+timmy-preview.txt
+.stephen_state
