@@ -27,3 +27,24 @@
 - Removed clutter from GitHub repo (.DS_Store, PNGs, .stephen_state, etc.)
 
 **Files in folder after this session:** 14
+
+## 2026-04-02 — Cowork (continuation 3)
+**What I did:**
+- timmy: modified — embedded all art directly inline (no external txt file dependency)
+- stephen: modified — embedded all 3 arts directly inline (no external txt file dependency)
+- fart: modified — reverted frog design to original tall style (|  ___  | body, /|     |\ legs)
+- Committed all changes to git; push to GitHub requires user to run `git push` from their terminal
+
+**Files in folder after this session:** 14
+
+## 2026-04-02 — Cowork (continuation 4)
+**What I did:**
+- fart: modified — reverted frog design back to original tall style (.---. / / o o \ / |  ___  | body with /|     |\ legs); undid the flat @..@ design from continuation 3
+
+**Files in folder after this session:** 14
+
+## 2026-04-02 — Cowork (continuation 5)
+**What I did:**
+- fart: modified — redesigned all frogs to jgs wide/flat style (_     _ / (')-=-(') / __(   "   )__ body with splayed legs); removed jgs attribution tag; fixed frame 10 wipeout body corruption
+
+**Files in folder after this session:** 14
