@@ -371,8 +371,7 @@ JUST_CHILLING='
  \/___/                                                                            \_/__/'
 
 if [ "$NEXT" = "3" ]; then
-  ART="$ART3
-$JUST_CHILLING"
+  ART="$ART3"
 elif [ "$NEXT" = "2" ]; then
   ART="$ART2"
 else
