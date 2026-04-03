@@ -37,9 +37,12 @@
 
 **Files in folder after this session:** 14
 
-## 2026-04-02 — Cowork (continuation 4)
+## 2026-04-03 — Cowork (continuation 4)
 **What I did:**
-- fart: modified — reverted frog design back to original tall style (.---. / / o o \ / |  ___  | body with /|     |\ legs); undid the flat @..@ design from continuation 3
+- fart: modified — redesigned all frogs to jgs-style (wide flat body, eye stalks, legs splayed); eye expressions per frame; removed jgs credit tag
+- timmy: modified — alternating art no-repeat logic, removed redundant yell lines, restored larry3d block banner
+- stephen: modified — replaced just chilling banner with larry3d font, embedded as clean strip inside art 3, removed duplicate below image
+- Pushed all changes to GitHub (5 commits)
 
 **Files in folder after this session:** 14
 
