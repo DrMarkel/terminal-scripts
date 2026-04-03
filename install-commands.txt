@@ -11,5 +11,6 @@ USAGE:
 ------
 timmy       — prints Timmy Burch from South Park
 stephen     — prints Stephen Hawking (cycles through 3 arts)
+fart        — animated frog fart story (11 frames)
 
 That's it. Just type the command.
