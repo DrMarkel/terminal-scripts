@@ -1,16 +1,53 @@
-TERMINAL COMMANDS — timmy & stephen
-====================================
+TERMINAL COMMANDS — timmy, stephen & fart
+==========================================
 by Brandon Markel / github.com/DrMarkel
 
-INSTALL:
---------
-git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
-echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
 
-USAGE:
-------
-timmy       — prints Timmy Burch from South Park
-stephen     — prints Stephen Hawking (cycles through 3 arts)
-fart        — animated frog fart story (11 frames)
+COMMANDS:
+---------
+  timmy    — prints Timmy Burch from South Park
+  stephen  — prints Stephen Hawking (cycles through 3 arts)
+  fart     — animated frog fart story (11 frames)
 
-That's it. Just type the command.
+
+==========================================
+  MAC INSTALL
+==========================================
+
+Step 1 — Open Terminal (search "Terminal" in Spotlight)
+
+Step 2 — Paste this and hit Enter:
+  git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
+
+Step 3 — Paste this and hit Enter:
+  echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.zshrc && source ~/.zshrc
+
+Step 4 — Type any command and hit Enter:
+  timmy
+  stephen
+  fart
+
+
+==========================================
+  WINDOWS INSTALL
+==========================================
+
+Step 1 — Install Git for Windows (if you don't have it):
+  https://git-scm.com/download/win
+  (just click Next through the installer)
+
+Step 2 — Open "Git Bash" (search for it in the Start menu)
+
+Step 3 — Paste this and hit Enter:
+  git clone https://github.com/DrMarkel/terminal-scripts ~/terminal-scripts
+
+Step 4 — Paste this and hit Enter:
+  echo 'export PATH="$HOME/terminal-scripts:$PATH"' >> ~/.bashrc && source ~/.bashrc
+
+Step 5 — Type any command and hit Enter:
+  timmy
+  stephen
+  fart
+
+NOTE: These commands only work inside Git Bash on Windows,
+not in Command Prompt or PowerShell.
